@@ -18,7 +18,7 @@ import Zpi from "./Zpi";
 export default function ActionBtn({ zpiid }) {
     const { resolvedTheme } = useTheme();
     const qrcodeRef = useRef(null);
-    const zpiQr = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://zenpay.vercel.app/dashboard/pay?zpiid=${zpiid}${resolvedTheme=="dark" ? '&bgcolor=020817&color=f8fafc' : '&bgcolor=fff&color=000'}`;
+    const zpiQr = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://zpay-phi.vercel.app/dashboard/pay?zpiid=${zpiid}${resolvedTheme=="dark" ? '&bgcolor=020817&color=f8fafc' : '&bgcolor=fff&color=000'}`;
     const handleDownload = () => {
         toast.loading("downloading");
         domtoimage.toJpeg(qrcodeRef.current, { quality: 0.95 })
@@ -57,7 +57,7 @@ export default function ActionBtn({ zpiid }) {
                 </DialogContent>
             </Dialog>
             {/* <Button size="icon" variant="secondary" onClick={handleScan}><ScanBarcodeIcon className="h-4 w-4" /></Button> */}
-            <Button variant="secondary" onClick={() => { navigator.share({ text: `Send me some zen coin on my zpi id: ${zpiid}`, title: "ZenPay", url: "https://zenpay.vercel.app" }); }} className="flex items-center justify-center gap-[2px]" size="icon"><Plus className="h-4 w-4" /></Button>
+            <Button variant="secondary" onClick={() => { navigator.share({ text: `Send me some zen coin on my zpi id: ${zpiid}`, title: "ZenPay", url: "https://zpay-phi.vercel.app/" }); }} className="flex items-center justify-center gap-[2px]" size="icon"><Plus className="h-4 w-4" /></Button>
         </>
     )
 }
